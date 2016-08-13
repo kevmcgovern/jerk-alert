@@ -15,6 +15,7 @@ end
 
 # Posts SHOW
 get '/posts/:id' do
+  @user = current_user
   @post = Post.find(params[:id])
   erb :'posts/show'
 end
@@ -25,7 +26,7 @@ posts '/posts' do
   @user = current_user
   @post = Post.new(params[:post])
   if request.xhr?
-  	# Going to need to put the API query in here
+    # Going to need to put the API query in here
     if @post.save
       status 200
       erb :'posts/_index', layout: false, locals: {post: @post}
