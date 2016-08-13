@@ -1,12 +1,14 @@
-demo_text = "The Alabama Shakes show last night was crazy!! Freaking incredible!"
+require_relative '../models/api_model.rb'
 
-alchemyapi = AlchemyAPI.new
+demo_text = "The Alabama Shakes show last night was absolutely awesome! Such an incredible show!"
 
-puts "Making calls on :" + demo_text
+alchemyapi = AlchemyAPI.new()
+
+puts "Making calls on: " + demo_text
 
 response = alchemyapi.sentiment_targeted('text', demo_text, 'Alabama Shakes')
 
-if response['stauts'] == 'OK'
+if response['status'] == 'OK'
 	puts 'We gucci. Response object inbound'
 	puts JSON.pretty_generate(response)
 
@@ -18,5 +20,6 @@ if response['stauts'] == 'OK'
 	end
 
 else
-	puts "You done fucked up! " + response['statusInfo']
+	puts "You done fucked up! " #+ response['statusInfo']
+	puts response
 end

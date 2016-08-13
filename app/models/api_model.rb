@@ -17,6 +17,9 @@
 require 'rubygems'
 require 'net/http'
 require 'uri'
+require 'dotenv'
+Dotenv.load
+
 require 'json'
 require 'pry-byebug'
 # require '~/Documents/dbc-work/phase-2/passion-project/sinatra-skeleton-mvc-challenge-master/.env'
@@ -94,10 +97,11 @@ class AlchemyAPI
 	
 	def initialize()
 	
+		# p ENV
 		begin
 			# key = File.read('api_key.txt')
 			# key.strip!
-			key = ALCHEMY_KEY
+			key = ENV['ALCHEMY_KEY']
 
 			if key.empty?
 				#The key file should't be blank
