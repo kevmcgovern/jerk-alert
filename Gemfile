@@ -12,6 +12,9 @@ gem 'activerecord', '~>4.2.0'
 
 gem 'rake'
 
+gem 'pry-byebug'
+gem 'json'
+
 gem 'shotgun'
 
 group :test do
