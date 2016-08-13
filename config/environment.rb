@@ -12,7 +12,7 @@ require 'dotenv'
 Dotenv.load
 
 require 'uri'
-require 'nt/http'
+require 'net/http'
 require 'pathname'
 
 require 'pry-byebug'
