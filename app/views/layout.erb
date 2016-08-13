@@ -18,6 +18,14 @@
   <title></title>
 </head>
 <body>
+  <header>
+    <% if current_user %>
+      <a id="logout" href="/sessions/destroy">Logout</a>
+    <% else %>
+      <a href="/sessions/new">Login</a>
+    <% end %>
+  </header>
+  <h1 id="banner-title">JerkAlert</h1>
   <%= yield %>
 </body>
 </html>
