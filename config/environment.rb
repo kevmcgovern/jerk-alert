@@ -16,6 +16,7 @@ require 'net/http'
 require 'pathname'
 
 require 'pry-byebug'
+require 'bcrypt'
 
 require 'pg'
 require 'active_record'
