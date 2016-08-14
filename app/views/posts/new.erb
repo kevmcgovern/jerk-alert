@@ -1,9 +1,13 @@
 <h1>Time For A New Query!</h1>
 <div class="container">
 	<h2>Enter Text Below For Analysis</h2>
-	<form action='/posts' method="POST">
-		<textarea name="post[body]" rows="15" cols="50" id="query">
-		</textarea>
-		<input id="creation" type="submit" value="What does it mean?!?!">
-	</form>
+	<div class="prepend">
+		<form id="creation" action='/posts' method="post">
+			<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
+			<textarea name="post[body]" class="text" rows="15" cols="50" id="query"></textarea>
+			<!-- <input type="text" name="post[body]"> -->
+
+			<input type="submit" value="What does it mean?!?!" />
+		</form>
+	</div>
 </div>
