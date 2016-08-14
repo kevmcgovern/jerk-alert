@@ -18,6 +18,18 @@ post '/posts/sentiment' do
   end
 end
 
+post '/posts/emotion' do
+  @user = current_user
+  @post = Post.new(params[:post])
+  analysis = emotion_query(@post.body)
+  @post.update(analysis: emotion_parse(analysis))
+  if @post.save
+    redirect '/posts'
+  else
+    redirect '/posts/new'
+  end
+end
+
 # post '/posts' do
 # 	redirect '/'
 # end
