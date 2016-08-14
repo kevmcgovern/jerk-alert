@@ -55,12 +55,27 @@ helpers do
       puts "Generating response"
       puts JSON.pretty_generate(response)
       if response['docEmotions'].key?('anger')
-        puts 'scores: ' + response['docEmotions']
+        # puts 'scores: ' + response['docEmotions']
       end
     else
       puts "Error in emotion call: " + response['statusInfo']
     end
     return response
+  end
+
+  def emotion_parse(query_response)
+    # DRY This up later with an iteration - map probably
+    anger = query_response['docEmotions']['anger']
+    disgust = query_response['docEmotions']['disgust']
+    fear = query_response['docEmotions']['fear']
+    joy = query_response['docEmotions']['joy']
+    sadness = query_response['docEmotions']['sadness']
+    ["The emotional scores of your query are as follows:", 
+      "anger: #{anger}",
+      "disgust: #{disgust}", 
+      "fear: #{fear}", 
+      "joy: #{joy}", 
+      "sadness: #{sadness}"].join("\n") + "\n"
   end
 
   def current_user
