@@ -24,8 +24,9 @@ end
 
 # Sessions DESTROY
 delete '/sessions/:id' do
+  # @user = current_user
   if request.xhr?
     session[:id] = nil
-    redirect '/'
+    erb :'index'
   end
 end
