@@ -21,7 +21,11 @@
   <header>
   <a href="/">Home</a>
     <% if current_user %>
-      <a id="logout" href="/sessions/<%= current_user.id %>">Logout</a>
+      <form action='/sessions/<%= current_user.id %>' method="POST">
+        <input type="hidden" name="_method" value="Delete">
+        <input type="submit" value="Logout">
+      </form>
+      <!-- <a id="logout" href="/sessions/<%= current_user.id %>">Logout</a> -->
       <a href="/users/<%= current_user.id %>">Profile</a>
     <% else %>
       <a href="/sessions/new">Login</a>
