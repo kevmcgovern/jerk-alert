@@ -23,25 +23,25 @@ end
 
 
 # Posts CREATE
-post '/posts' do
-	p "*" * 100
-  p params
-  @user = current_user
-  @post = Post.new(params[:post])
-  # if request.xhr?
-    # Going to need to put the API query in here
-    if @post.save
-      status 200
-      redirect '/posts'
-      # erb :'posts/_index', layout: false, locals: {post: @post}
-    # else
-    #   status 422
-    # end
-  else
-    @errors = @post.errors.full_messages
-    redirect '/posts/new'
-  end
-end
+# post '/posts' do
+# 	p "*" * 100
+#   p params
+#   @user = current_user
+#   @post = Post.new(params[:post])
+#   # if request.xhr?
+#     # Going to need to put the API query in here
+#     if @post.save
+#       status 200
+#       redirect '/posts'
+#       # erb :'posts/_index', layout: false, locals: {post: @post}
+#     # else
+#     #   status 422
+#     # end
+#   else
+#     @errors = @post.errors.full_messages
+#     redirect '/posts/new'
+#   end
+# end
 
 # Posts EDIT -- Shouldn't be able to do this
 

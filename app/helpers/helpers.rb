@@ -39,6 +39,13 @@ helpers do
     else
       puts 'Error in sentiment call: ' + response['statusInfo']
     end
+    return response
+  end
+
+  def sentiment_parse(query_response)
+    sentiment = query_response['docSentiment']['type']
+    score = query_response['docSentiment']['score']
+    "The sentiment of your query is #{sentiment}, and the score is #{score}." 
   end
 
   def current_user
