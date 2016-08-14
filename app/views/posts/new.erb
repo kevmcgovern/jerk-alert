@@ -1,12 +1,8 @@
 <h1>Time For A New Query!</h1>
 <div class="container">
-	<h2>Enter Text Below For Analysis</h2>
+	<h2>Click one of the links below for a given type of analysis</h2>
 	<div class="prepend">
-		<form class="creation" action='/posts/sentiment' method="post">
-			<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
-			<textarea name="post[body]" class="text" rows="15" cols="50" id="query"></textarea>
-			<input type="submit" value="What does it mean?!?!" />
-		</form>
+		<a class="ajax-form" href="/posts/new/sentiment">Sentiment analysis - strictly positive/negative</a>
+	<a class="ajax-form" href="/posts/new/emotion">Emotional analysis - how 5 emotions are represented in your text</a>
 	</div>
-	<div><a href="/posts/new/emotion">Try emotional analysis next!</a></div>
 </div>

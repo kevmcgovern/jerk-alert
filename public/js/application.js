@@ -6,7 +6,7 @@ $(document).ready(function() {
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   // logoutListener();
   submitListener();
-  // newListener();
+  newListener();
 });
 
 var logoutListener = function(){
@@ -33,9 +33,9 @@ var logoutListener = function(){
 };
 
 var submitListener = function (){
-	$('.creation').on('submit', function(event){
+	$('.prepend').on('submit', '.creation', function(event){
 		event.preventDefault();
-		// debugger;
+		debugger;
 		var that = $(this);
 		var address = $(this).attr('action');
 		var verb = $(this).attr('method');
@@ -59,9 +59,23 @@ var submitListener = function (){
 };
 
 var newListener = function(){
-	$('#new').on('click', function(event){
+	$('.ajax-form').on('click', function(event){
 		event.preventDefault();
 		that = $(this);
-		debugger;
+		// debugger;
+		var address = $(this).attr('href');
+		var verb = 'GET';
+		var request = $.ajax({
+			url: address, 
+			type: verb
+		});
+		request.done(function(responseData){
+			console.log("Now we're cooking with gas");
+			$('.prepend').prepend(responseData);
+		});
+		request.fail(function(responseData){
+			alert("And now you're fucked");
+			console.log(responseData);
+		});
 	});
 };

@@ -7,19 +7,29 @@ end
 
 
 # Posts NEW
-get '/posts/new' do
+get '/posts/new/sentiment' do
   @user = current_user
-  # if request.xhr?
-    # erb :'posts/_new', layout: false, locals: {user: @user}
+  if request.xhr?
+    erb :'posts/_sentiment', layout: false, locals: { user: @user }
     # Ajax this?
-  # else
+  else
     erb :'posts/new'
-  # end
+  end
 end
 
 get '/posts/new/emotion' do
   @user = current_user
-  erb :'posts/_emotion'
+  if request.xhr?
+    erb :'posts/_emotion', layout: false, locals: { user: @user } 
+  else
+    erb :'posts/new'
+  end
+  # erb :'posts/_emotion'
+end
+
+get '/posts/new' do
+  @user = current_user
+  erb :'posts/new'
 end
 
 
