@@ -9,8 +9,12 @@ end
 # Posts NEW
 get '/posts/new' do
   @user = current_user
-  # Ajax this?
-  erb :'posts/_new'
+  if request.xhr?
+    erb :'posts/_new', layout: false, locals: {user: @user}
+    # Ajax this?
+  else
+    erb :'posts/new'
+  end
 end
 
 
@@ -24,7 +28,7 @@ end
 
 # Posts CREATE
 # post '/posts' do
-# 	p "*" * 100
+#   p "*" * 100
 #   p params
 #   @user = current_user
 #   @post = Post.new(params[:post])
