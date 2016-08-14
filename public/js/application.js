@@ -12,15 +12,20 @@ var logoutListener = function(){
 	$('#logout').on('click', function(event){
 		event.preventDefault();
 		var address = $(this).attr('href');
-		var verb = "DESTROY";
+		var verb = "Post";
+		var method = "Delete";
+		var that = $(this);
+		// debugger;
 		var request = $.ajax({
 			url: address, 
-			type: verb
+			type: method
 		});
 		request.done(function(responseData){
 			console.log(responseData);
+			alert("It worked... now what?");
 		});
 		request.fail(function(responseData){
+			console.log(responseData);
 			alert("Something went horribly wrong");
 		});
 	});
@@ -29,6 +34,6 @@ var logoutListener = function(){
 var submitListener = function (){
 	$('#creation').on('click', function(event){
 		event.preventDefault();
-		debugger;
+		// debugger;
 	});
 };
