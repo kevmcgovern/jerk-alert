@@ -8,22 +8,35 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 # Require gems we care about
 require 'rubygems'
 
+require 'dotenv'
+Dotenv.load
+
 require 'uri'
+require 'net/http'
 require 'pathname'
+
+require 'pry-byebug'
+require 'bcrypt'
 
 require 'pg'
 require 'active_record'
 require 'logger'
+
+require 'httparty'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
 
+require 'json'
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
+
+ALCHEMY_KEY = ENV['ALCHEMY_KEY']
 
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
