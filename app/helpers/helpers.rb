@@ -45,7 +45,37 @@ helpers do
   def sentiment_parse(query_response)
     sentiment = query_response['docSentiment']['type']
     score = query_response['docSentiment']['score']
-    "The sentiment of your query is #{sentiment}, and the score is #{score}." 
+    "The sentiment of your query is #{sentiment}, and the score is #{score}."
+  end
+
+  def emotion_query(query_text)
+    alchemyapi = AlchemyAPI.new()
+    response = alchemyapi.emotion('text', query_text)
+    if response['status'] == 'OK'
+      puts "Generating response"
+      puts JSON.pretty_generate(response)
+      if response['docEmotions'].key?('anger')
+        # puts 'scores: ' + response['docEmotions']
+      end
+    else
+      puts "Error in emotion call: " + response['statusInfo']
+    end
+    return response
+  end
+
+  def emotion_parse(query_response)
+    # DRY This up later with an iteration - map probably
+    anger = query_response['docEmotions']['anger']
+    disgust = query_response['docEmotions']['disgust']
+    fear = query_response['docEmotions']['fear']
+    joy = query_response['docEmotions']['joy']
+    sadness = query_response['docEmotions']['sadness']
+    ["The emotional scores of your query are as follows:", 
+      "anger: #{anger}",
+      "disgust: #{disgust}", 
+      "fear: #{fear}", 
+      "joy: #{joy}", 
+      "sadness: #{sadness}"].join("\n") + "\n"
   end
 
   def current_user

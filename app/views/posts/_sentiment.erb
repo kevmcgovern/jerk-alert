@@ -1,0 +1,8 @@
+<h3>Sentiment Analysis</h3>
+<div class="container">
+	<form class="creation" action='/posts/sentiment' method="post">
+		<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
+		<textarea name="post[body]" class="text" rows="15" cols="50" id="query"></textarea>
+		<input type="submit" value="What does it mean?!?!" />
+	</form>
+</div>
