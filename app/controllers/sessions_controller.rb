@@ -10,7 +10,7 @@ post '/sessions' do
   if @user
     if @user.authenticate(params[:user][:password])
       session[:id] = @user.id
-      redirect '/'
+      redirect '/posts/new'
     else
       @error = "invalid login information. Please try again."
       redirect '/sessions/new'
@@ -24,8 +24,9 @@ end
 
 # Sessions DESTROY
 delete '/sessions/:id' do
-  if request.xhr?
+  # @user = current_user
+  # if request.xhr?
     session[:id] = nil
     redirect '/'
-  end
+  # end
 end

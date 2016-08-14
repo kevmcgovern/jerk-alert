@@ -1,0 +1,18 @@
+<h1>Hey there, <%= @user.username %></h1>
+<% if @user.posts %>
+<div class="container">
+	<p>Here's everything we've evaluated for you:</p>
+	<div class="container">
+		<% @user.posts.each do |post| %>
+			<a class="post-pointer" href="/posts/<%= post.id %>"> <%= post.id %> </a>
+			<%= post.body %> 
+			<p>Alchemy says:</p>
+			<%= post.analysis %>
+	</div>
+		<% end %>
+</div>
+
+<% else %>
+<h2>You haven't done anything yet!</h2>
+<p>Go <a href="/posts/new">here</a> to have some text analyzed</p>
+<% end %>

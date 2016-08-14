@@ -1,0 +1,12 @@
+<h1>Time For A New Query!</h1>
+<div class="container">
+	<h2>Enter Text Below For Analysis</h2>
+	<form action='/posts' method="post">
+		<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
+		<textarea name="post[body]" class="text" rows="15" cols="50" id="query">
+		</textarea>
+		<!-- <input type="text" name="post[body]"> -->
+
+		<input id="submit" type="submit" value="What does it mean?!?!" />
+	</form>
+</div>

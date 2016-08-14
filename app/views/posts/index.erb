@@ -1,0 +1,17 @@
+<h1>Ask Us Anything!</h1>
+<h2>Just kidding! Here's everything you're already asked:</h2>
+<div class="container">
+	<% @posts.each do |post| %>
+	<div>
+		<p>Input text:</p>
+		<div class="little-container">
+			<%= post.body %>
+		</div>
+		<p>Analysis from Alchemy:</p>
+		<div class="little-container">
+			<%= post.analysis %>
+		</div>
+	</div>
+	<% end %>
+</div>
+<h3><a href="/posts/new">Want to have more text reviewed?</a></h3>
