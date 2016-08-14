@@ -1,6 +1,6 @@
 # require_relative '../models/api_model.rb'
 
-post '/posts' do
+post '/posts/sentiment' do
   @user = current_user
   @post = Post.new(params[:post])
   analysis = sentiment_query(@post.body)
