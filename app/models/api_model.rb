@@ -92,6 +92,7 @@ class AlchemyAPI
 	@@ENDPOINTS['image_tag']['url'] = '/url/URLGetRankedImageKeywords'
 	@@ENDPOINTS['image_tag']['image'] = '/image/ImageGetRankedImageKeywords'
 		# Writing the emotions endpoints - doesn't currently exist in this file
+	@@ENDPOINTS['emotion'] = {}
 	@@ENDPOINTS['emotion']['text'] = '/text/TextGetEmotion'
 
 
