@@ -23,7 +23,7 @@ end
 
 
 # Posts CREATE
-posts '/posts' do
+post '/posts' do
   @user = current_user
   @post = Post.new(params[:post])
   if request.xhr?
