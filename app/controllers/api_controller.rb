@@ -24,6 +24,6 @@
 # 	puts response
 # end
 
-post '/posts' do
-	redirect '/'
-end
+# post '/posts' do
+# 	redirect '/'
+# end

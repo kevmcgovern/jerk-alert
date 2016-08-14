@@ -5,6 +5,7 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   logoutListener();
+  submitListener();
 });
 
 var logoutListener = function(){
@@ -22,5 +23,12 @@ var logoutListener = function(){
 		request.fail(function(responseData){
 			alert("Something went horribly wrong");
 		});
+	});
+};
+
+var submitListener = function (){
+	$('#creation').on('click', function(event){
+		event.preventDefault();
+		debugger;
 	});
 };

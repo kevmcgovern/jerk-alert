@@ -10,7 +10,7 @@ end
 get '/posts/new' do
   @user = current_user
   # Ajax this?
-  erb :'posts/new'
+  erb :'posts/_new'
 end
 
 
@@ -24,19 +24,22 @@ end
 
 # Posts CREATE
 post '/posts' do
+	p "*" * 100
+  p params
   @user = current_user
   @post = Post.new(params[:post])
-  if request.xhr?
+  # if request.xhr?
     # Going to need to put the API query in here
     if @post.save
       status 200
-      erb :'posts/_index', layout: false, locals: {post: @post}
-    else
-      status 422
-    end
+      redirect '/posts'
+      # erb :'posts/_index', layout: false, locals: {post: @post}
+    # else
+    #   status 422
+    # end
   else
     @errors = @post.errors.full_messages
-    redirect '/posts'
+    redirect '/posts/new'
   end
 end
 
