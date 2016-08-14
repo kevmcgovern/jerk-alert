@@ -2,12 +2,11 @@
 <div class="container">
 	<h2>Enter Text Below For Analysis</h2>
 	<div class="prepend">
-		<form id="creation" action='/posts' method="post">
+		<form class="creation" action='/posts/sentiment' method="post">
 			<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
 			<textarea name="post[body]" class="text" rows="15" cols="50" id="query"></textarea>
-			<!-- <input type="text" name="post[body]"> -->
-
 			<input type="submit" value="What does it mean?!?!" />
 		</form>
 	</div>
+	<div><a href="/posts/new/emotion">Try emotional analysis next!</a></div>
 </div>

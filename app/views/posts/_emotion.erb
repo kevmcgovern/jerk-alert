@@ -1,0 +1,18 @@
+<h3>Emotion Query</h3>
+<div>
+	<p>Enter text below to extract the representation of the 5 most basic emotions:</p>
+	<ul>
+		<li>Anger</li>
+		<li>Disgust</li>
+		<li>Fear</li>
+		<li>Joy</li>
+		<li>Sadness</li>
+	</ul>
+</div>
+<div class="container">
+<form action="/posts/emotion" method="POST">
+	<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
+	<textarea name="post[body]" class="text" rows="15" cols="50" id="emotion-text"></textarea>
+	<input type="submit" value="Give me the feels">
+</form>
+</div>

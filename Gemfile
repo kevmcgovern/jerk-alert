@@ -13,6 +13,8 @@ gem 'activerecord', '~>4.2.0'
 gem 'rake'
 gem 'bcrypt'
 
+gem 'haml'
+
 gem 'pry-byebug'
 gem 'json'
 gem 'dotenv'

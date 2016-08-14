@@ -18,6 +18,8 @@ require 'pathname'
 require 'pry-byebug'
 require 'bcrypt'
 
+require 'haml'
+
 require 'pg'
 require 'active_record'
 require 'logger'

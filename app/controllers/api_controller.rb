@@ -1,6 +1,6 @@
 # require_relative '../models/api_model.rb'
 
-post '/posts' do
+post '/posts/sentiment' do
   @user = current_user
   @post = Post.new(params[:post])
   analysis = sentiment_query(@post.body)
@@ -15,6 +15,18 @@ post '/posts' do
     end
   else
   	redirect '/posts'
+  end
+end
+
+post '/posts/emotion' do
+  @user = current_user
+  @post = Post.new(params[:post])
+  analysis = emotion_query(@post.body)
+  @post.update(analysis: emotion_parse(analysis))
+  if @post.save
+    redirect '/posts'
+  else
+    redirect '/posts/new'
   end
 end
 
