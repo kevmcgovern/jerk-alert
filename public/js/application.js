@@ -33,7 +33,7 @@ var logoutListener = function(){
 };
 
 var submitListener = function (){
-	$('#creation').on('submit', function(event){
+	$('.creation').on('submit', function(event){
 		event.preventDefault();
 		// debugger;
 		var that = $(this);
