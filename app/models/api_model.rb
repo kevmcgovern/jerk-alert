@@ -91,7 +91,12 @@ class AlchemyAPI
 	@@ENDPOINTS['image_tag'] = {}
 	@@ENDPOINTS['image_tag']['url'] = '/url/URLGetRankedImageKeywords'
 	@@ENDPOINTS['image_tag']['image'] = '/image/ImageGetRankedImageKeywords'
-		
+		# Writing the emotions endpoints - doesn't currently exist in this file
+	@@ENDPOINTS['emotion']['text'] = '/text/TextGetEmotion'
+
+
+
+
 	@@BASE_URL = 'http://access.alchemyapi.com/calls'
 	
 	
@@ -130,6 +135,14 @@ class AlchemyAPI
 
 
 
+	# My attempt at writing my own API call for the emotion analysis
+	def emotion(flavor, data, options={})
+		unless @@ENDPOINTS['emotion'].key?(flavor)
+			return { 'status'=>'ERROR', 'statusInfo'=>'emotion analysis for ' + flavor + ' not available.'}
+		end
+		options[flavor] = data
+		return analyze(@@ENDPOINTS['emotion'][flavor], options)
+	end
 
 
 	# Calculates the sentiment for text, a URL or HTML.
