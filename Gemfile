@@ -17,6 +17,8 @@ gem 'pry-byebug'
 gem 'json'
 gem 'dotenv'
 
+gem 'httparty'
+
 gem 'shotgun'
 
 group :test do
