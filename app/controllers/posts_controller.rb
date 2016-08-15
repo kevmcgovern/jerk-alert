@@ -1,5 +1,5 @@
 # Posts INDEX
-get '/posts' do
+get '/posts/' do
   @user = current_user
   @posts = @user.posts
   erb :'posts/index'
