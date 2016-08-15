@@ -19,21 +19,22 @@
 </head>
 <body>
   <header>
-  <a href="/">Home</a>
-    <% if current_user %>
-      <form action='/sessions/<%= current_user.id %>' method="POST">
+    <div id="omni-header">
+      <a href="/">Home</a>
+      <% if current_user %>
+      <form id="logout" action='/sessions/<%= current_user.id %>' method="POST">
         <input type="hidden" name="_method" value="Delete">
         <input type="submit" value="Logout">
       </form>
       <!-- <a id="logout" href="/sessions/<%= current_user.id %>">Logout</a> -->
-      <a href="/users/<%= current_user.id %>">Profile</a>
-    <% else %>
+      <a id="profile" href="/users/<%= current_user.id %>">Profile</a>
+      <% else %>
       <a href="/sessions/new">Login</a>
       <a href="/users/new">Register</a>
-    <% end %>
+      <% end %>
+    </div>
   </header>
   <h1 id="banner-title">JerkAlert</h1>
   <%= yield %>
-  <p><a href="/posts/new">Ask Alchemy to emotionally proof read more stuff!</a></p>
 </body>
 </html>
