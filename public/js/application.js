@@ -7,6 +7,7 @@ $(document).ready(function() {
   // logoutListener();
   submitListener();
   newListener();
+  queryExplanationListener();
 });
 
 var logoutListener = function(){
@@ -35,7 +36,6 @@ var logoutListener = function(){
 var submitListener = function (){
 	$('.prepend').on('submit', '.creation', function(event){
 		event.preventDefault();
-		debugger;
 		var that = $(this);
 		var address = $(this).attr('action');
 		var verb = $(this).attr('method');
@@ -47,7 +47,7 @@ var submitListener = function (){
 		});
 		// debugger;
 		request.done(function(responseData){
-			console.log("I can't believe that worked");
+			// console.log("I can't believe that worked");
 			console.log(responseData);
 			$('.prepend').prepend(responseData);
 		});
@@ -71,11 +71,32 @@ var newListener = function(){
 		});
 		request.done(function(responseData){
 			console.log("Now we're cooking with gas");
-			$('.prepend').prepend(responseData);
+			$('#form-container').html(responseData);
 		});
 		request.fail(function(responseData){
 			alert("And now you're fucked");
 			console.log(responseData);
+		});
+	});
+};
+
+var queryExplanationListener = function(){
+	$('.prepend').on('click', '.sub-header', function(event){
+		event.preventDefault();
+		var that = $(this);
+		// debugger;
+		var address = that.find('a').attr('href');
+		var verb = "GET";
+		var request = $.ajax({
+			url: address,
+			type: verb
+		});
+		request.done(function(responseData){
+			console.log(responseData);
+			$('.explanation-container').html(responseData);
+		});
+		request.fail(function(responseData){
+			alert("There was an error processing your request");
 		});
 	});
 };

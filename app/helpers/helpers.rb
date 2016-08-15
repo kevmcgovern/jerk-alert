@@ -44,7 +44,7 @@ helpers do
 
   def sentiment_parse(query_response)
     sentiment = query_response['docSentiment']['type']
-    score = query_response['docSentiment']['score']
+    score = (query_response['docSentiment']['score'].to_f) * 100
     "The sentiment of your query is #{sentiment}, and the score is #{score}."
   end
 
@@ -65,17 +65,17 @@ helpers do
 
   def emotion_parse(query_response)
     # DRY This up later with an iteration - map probably
-    anger = query_response['docEmotions']['anger']
-    disgust = query_response['docEmotions']['disgust']
-    fear = query_response['docEmotions']['fear']
-    joy = query_response['docEmotions']['joy']
-    sadness = query_response['docEmotions']['sadness']
-    ["The emotional scores of your query are as follows:", 
-      "anger: #{anger}",
-      "disgust: #{disgust}", 
-      "fear: #{fear}", 
-      "joy: #{joy}", 
-      "sadness: #{sadness}"].join("\n") + "\n"
+    anger = (query_response['docEmotions']['anger'].to_f) * 100
+    disgust = (query_response['docEmotions']['disgust'].to_f) * 100
+    fear = (query_response['docEmotions']['fear'].to_f) * 100
+    joy = (query_response['docEmotions']['joy'].to_f) * 100
+    sadness = (query_response['docEmotions']['sadness'].to_f) * 100
+    "The emotional scores of your query are as follows: 
+      anger: #{anger}
+      disgust: #{disgust} 
+      fear: #{fear} 
+      joy: #{joy}
+      sadness: #{sadness}"
   end
 
   def current_user

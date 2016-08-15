@@ -20,7 +20,7 @@ end
 get '/posts/new/emotion' do
   @user = current_user
   if request.xhr?
-    erb :'posts/_emotion', layout: false, locals: { user: @user } 
+    erb :'posts/_emotion', layout: false, locals: { user: @user }
   else
     erb :'posts/new'
   end
@@ -41,6 +41,24 @@ get '/posts/:id' do
 end
 
 
+# Potentially superfluous routes for event listeners/ajax
+get '/posts/sentiment/explanation' do
+  if request.xhr?
+    erb :'posts/_sentiment-details', layout: false
+  else
+    redirect '/'
+  end
+
+end
+
+
+get '/posts/emotion/explanation' do
+  if request.xhr?
+    erb :'posts/_emotion-details', layout: false
+  else
+    redirect '/'
+  end
+end
 # Posts CREATE
 # post '/posts' do
 #   p "*" * 100
