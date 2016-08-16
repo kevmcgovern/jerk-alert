@@ -70,11 +70,10 @@ var newListener = function(){
 			type: verb
 		});
 		request.done(function(responseData){
-			console.log("Now we're cooking with gas");
 			$('#form-container').html(responseData);
 		});
 		request.fail(function(responseData){
-			alert("And now you're fucked");
+			alert("There was an error processing your request");
 			console.log(responseData);
 		});
 	});
@@ -83,8 +82,8 @@ var newListener = function(){
 var queryExplanationListener = function(){
 	$('.prepend').on('click', '.sub-header', function(event){
 		event.preventDefault();
-		var that = $(this);
 		// debugger;
+		var that = $(this);
 		var address = that.find('a').attr('href');
 		var verb = "GET";
 		var request = $.ajax({
@@ -93,7 +92,14 @@ var queryExplanationListener = function(){
 		});
 		request.done(function(responseData){
 			console.log(responseData);
-			$('.explanation-container').html(responseData);
+			// debugger;
+			if ($('.explanation-container').html() !== "" && $('.explanation-container').css('display') === 'block') {
+				$('.explanation-container').css('display', 'none');
+			} else if ($('.explanation-container').html() !== "" && $('.explanation-container').css('display') === 'none') {
+				$('.explanation-container').css('display', 'block');
+			} else {
+				$('.explanation-container').html(responseData);
+			}
 		});
 		request.fail(function(responseData){
 			alert("There was an error processing your request");
