@@ -1,3 +1,8 @@
+html * {
+	border-style: solid ;
+	border-color: red;
+}
+
 #omni-header {
 	margin: 10px;
 	padding: 10px;
@@ -80,10 +85,10 @@ textarea {
 	outline: none;
 }
 
-.container {
+/*.container {
 	padding: 10px;
 	margin: 10px;
-}
+}*/
 .post-pointer {
 	padding-right: 5px;
 	margin-right: 5px;
@@ -107,7 +112,8 @@ h2 {
 }
 
 #main p {
-	padding: 10px;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 .explanation-container {
