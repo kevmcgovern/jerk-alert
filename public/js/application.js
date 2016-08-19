@@ -48,11 +48,13 @@ var submitListener = function (){
 		// debugger;
 		request.done(function(responseData){
 			// console.log("I can't believe that worked");
-			console.log(responseData);
+			// console.log(responseData);
+			// debugger;
 			$('.prepend').prepend(responseData);
 		});
 		request.fail(function(responseData){
-			console.log(responseData);
+			// console.log(responseData);
+			// debugger;
 			alert("Something went terribly wrong");
 		});
 	});
@@ -74,7 +76,7 @@ var newListener = function(){
 		});
 		request.fail(function(responseData){
 			alert("There was an error processing your request");
-			console.log(responseData);
+			// console.log(responseData);
 		});
 	});
 };

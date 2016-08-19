@@ -1,7 +1,3 @@
-html * {
-	border-style: solid ;
-	border-color: red;
-}
 
 #omni-header {
 	margin: 10px;
@@ -50,11 +46,12 @@ a.ajax-form {
 	padding: 10px;
 	margin: 10px;
 	text-decoration: none;
+	text-align: center;
 }
 
 a.ajax-form:hover {
 	color: #3498db;
-	width: 60%
+	/*width: 60%*/
 }
 
 form.creation {
@@ -64,7 +61,8 @@ form.creation {
 }
 
 h3.sub-header {
-	text-indent: 15%;
+	/*text-indent: 15%;*/
+	text-align: center ;
 }
 
 .creation input {
@@ -108,7 +106,11 @@ body {
 	text-align: center;
 }
 h2 {
-	text-indent: 34%
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
 }
 
 #main p {
@@ -127,4 +129,29 @@ h2 {
 	margin: auto;
 	width: 50%;
 	text-align: left;
+}
+
+#register-form input{
+	display: block;
+	margin: 10px;
+}
+
+#error {
+	text-align: center;
+	width: 100%;
+	color: #e74c3c;
+}
+
+.snark {
+	margin: auto;
+	max-width: 50%;
+}
+
+.snark h3 {
+	text-align: center;
+	color: #2980b9;
+}
+
+figcaption {
+	text-align: center;
 }
