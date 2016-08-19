@@ -8,6 +8,7 @@ $(document).ready(function() {
   submitListener();
   newListener();
   queryExplanationListener();
+  meaningListener();
 });
 
 var logoutListener = function(){
@@ -105,6 +106,25 @@ var queryExplanationListener = function(){
 		});
 		request.fail(function(responseData){
 			alert("There was an error processing your request");
+		});
+	});
+};
+
+var meaningListener = function() {
+	$('#home').on('click', function(event){
+		event.preventDefault();
+		var that = $(this);
+		var address = $(this).find('a').attr('href');
+		var verb = 'GET';
+		var request = $.ajax({
+			url: address, 
+			type: verb
+		});
+		request.done(function(responseData){
+			$('#meaning').html(responseData);
+		});
+		request.fail(function(responseData){
+			alert('Something went terribly wrong');
 		});
 	});
 };

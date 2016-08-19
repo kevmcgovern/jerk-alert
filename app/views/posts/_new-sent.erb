@@ -1,16 +1,18 @@
 <div>
-	<p>Input text:</p>
 	<div class="little-container">
+	<p>Input text:</p>
 	"<%= @post.body %>"
 	</div>
-	<p>Analysis from Alchemy:</p>
 	<div class="little-container">
+	<p>Analysis from Alchemy:</p>
 		<p>Sentiment: <%= analysis[:sentiment] %></p>
 		<p>Score: <%= analysis[:score] %> </p>
 	</div>
 </div>
 <div>
+	<div class="little-container">
 	<p>JerkAlert's perspective:</p>
+	</div>
 	<div class="snark">
 		<% if analysis[:score] >= -100 && analysis[:score] < -50 %>
 			<h3>Sensing some serious negativity coming from you. If you can, try to relax a bit</h3>

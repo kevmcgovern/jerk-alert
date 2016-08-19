@@ -155,3 +155,8 @@ h3 {
 figcaption {
 	text-align: center;
 }
+
+.little-container {
+	margin: auto;
+	width: 50%;
+}
