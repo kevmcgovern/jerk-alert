@@ -1,0 +1,65 @@
+<div>
+	<p>Input text:</p>
+	<div class="little-container">
+	"<%= @post.body %>"
+	</div>
+	<p>Analysis from Alchemy:</p>
+	<div class="little-container">
+		<ul>
+			<li>Anger: <%= analysis[:anger] %></li>
+			<li>Disgust: <%= analysis[:disgust] %></li>
+			<li>Sadness: <%= analysis[:sadness] %></li>
+			<li>Joy: <%= analysis[:joy] %></li>
+			<li>Fear: <%= analysis[:fear] %></li>
+		</ul>
+	</div>
+</div>
+	<div>
+	<p>JerkAlert's perspective:</p>
+	<div class="snark">
+	<% if analysis[:anger] > 40 %>
+	<h3>Calm down. Breathe. Woosah.</h3>
+	<figure>
+		<iframe src="//giphy.com/embed/tpxI2DCSRpOH6?html5=true" width="480" height="292" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/hercules-hades-tpxI2DCSRpOH6">via GIPHY</a></p>
+		<figcaption>RELAX</figcaption>
+	</figure>
+	<% elsif analysis[:disgust] > 40 %>
+		<h3>It's probably not as bad as you think. But what do I know? I'm a computer.</h3>
+	<figure>
+		<iframe src="//giphy.com/embed/L4caiF7GTkgJa?html5=true" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/indiana-jones-raiders-of-the-lost-ark-nazi-face-melt-L4caiF7GTkgJa">via GIPHY</a></p>
+		<figcaption>It's not "Nickelback released a new album" bad, is it?</figcaption>
+	</figure>
+	<% elsif analysis[:sadness] > 40 %>
+		<h3>It looks like things are tough. Here's a picture of a puppy.</h3>
+	<figure>
+		<img src="/img/puppy.jpg">
+		<figcaption>Before you make the feels go away, remember this</figcaption>
+	</figure>
+	<% elsif analysis[:joy] > 40 %>
+		<h3>So much happiness... Too bright...</h3>
+	<figure>
+		<img src="/img/sun.jpg">
+		<figcaption>You have a very <b>sunny</b> disposition.</figcaption>
+	</figure>
+	<% elsif analysis[:fear] > 40 %>
+		<h3>The world isn't out to get you. Except when it is...</h3>
+	<figure>
+		<img src="/img/courage.jpg">
+		<figcaption>Don't freak out about your own shadow</figcaption>
+	</figure>
+	<% elsif analysis[:anger] > 40 || analysis[:disgust] > 40 || analysis[:sadness] > 40 || analysis[:fear] > 40 %>
+		<h3>Lots of assorted negativity going on. Maybe take a chill pill</h3>
+	<figure>
+		<img src="/img/chill.jpg">
+		<figcaption>Seriously</figcaption>
+	</figure>
+	<% else %>
+		<h3>No strong emotions detected. This has never happened before. I don't know what to do.</h3>
+	<figure>
+		<iframe src="//giphy.com/embed/tvGOBZKNEX0ac?html5=true" width="480" height="203" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/mrw-coffee-wants-tvGOBZKNEX0ac">via GIPHY</a></p>
+		<figcaption></figcaption>
+	</figure>
+	<% end %>
+	</div>
+	</div>
+<br>
