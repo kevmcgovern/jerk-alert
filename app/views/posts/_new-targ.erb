@@ -1,0 +1,43 @@
+<div>
+	<p>Input text:</p>
+	<div class="little-container">
+	"<%= @post.body %>"
+	</div>
+	<p>Analysis from Alchemy:</p>
+	<div class="little-container">
+		<p>Sentiment: <%= analysis[:sentiment] %></p>
+		<p>Target: <%= @post.target %></p>
+		<p>Score: <%= analysis[:score] %> </p>
+	</div>
+</div>
+	<div>
+	<p>JerkAlert's perspective:</p>
+	<div class="snark">
+	<% if analysis[:score] >= -100 && analysis[:score] < -50 %>
+			<h3>Even if <%= @post.target %> deserves it, that's pretty harsh.</h3>
+			<figure>
+				<img src="/img/stfu.jpg" alt="shut the fuck up">
+				<figcaption>Not saying things are great, but don't take it out on <%= @post.target %></figcaption>
+			</figure>
+		<% elsif analysis[:score] >= -50 && analysis[:score] < 0 %>
+		<h3>You could still stand to ease off of <%= @post.target %>.</h3>
+		<figure>
+			<img src="/img/nice.jpg" alt="strive">
+			<figcaption>Patience is a virtue.</figcaption>
+		</figure>
+		<% elsif analysis[:score] >= 0 && analysis[:score] < 50  %>
+		<h3>This is totally acceptable to send to or say about <%=@post.target%>.</h3>
+		<figure>
+			<img src="/img/go_for_it.jpg">
+			<figcaption>No need to think about it. Acceptable correspondence</figcaption>
+		</figure>
+		<% else  %>
+			<h3>You seem to be a huge fan of <%= @post.target %> and we're fans of your attitude.</h3>
+		<figure>
+			<img src="https://i.imgur.com/cHSqp.gif">
+			<figcaption>You're making the world a better place by existing.</figcaption>
+		</figure>
+		<% end  %>
+	</div>
+	</div>
+<br>

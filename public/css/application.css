@@ -1,3 +1,4 @@
+
 #omni-header {
 	margin: 10px;
 	padding: 10px;
@@ -45,11 +46,12 @@ a.ajax-form {
 	padding: 10px;
 	margin: 10px;
 	text-decoration: none;
+	text-align: center;
 }
 
 a.ajax-form:hover {
 	color: #3498db;
-	width: 60%
+	/*width: 60%*/
 }
 
 form.creation {
@@ -59,7 +61,8 @@ form.creation {
 }
 
 h3.sub-header {
-	text-indent: 15%;
+	/*text-indent: 15%;*/
+	text-align: center ;
 }
 
 .creation input {
@@ -80,10 +83,10 @@ textarea {
 	outline: none;
 }
 
-.container {
+/*.container {
 	padding: 10px;
 	margin: 10px;
-}
+}*/
 .post-pointer {
 	padding-right: 5px;
 	margin-right: 5px;
@@ -103,11 +106,16 @@ body {
 	text-align: center;
 }
 h2 {
-	text-indent: 34%
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
 }
 
 #main p {
-	padding: 10px;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 .explanation-container {
@@ -121,4 +129,29 @@ h2 {
 	margin: auto;
 	width: 50%;
 	text-align: left;
+}
+
+#register-form input{
+	display: block;
+	margin: 10px;
+}
+
+#error {
+	text-align: center;
+	width: 100%;
+	color: #e74c3c;
+}
+
+.snark {
+	margin: auto;
+	max-width: 50%;
+}
+
+.snark h3 {
+	text-align: center;
+	color: #2980b9;
+}
+
+figcaption {
+	text-align: center;
 }
