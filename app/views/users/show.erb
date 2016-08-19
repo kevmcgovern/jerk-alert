@@ -1,13 +1,14 @@
-<h1>Hey there, <%= @user.username %></h1>
+<h2>Hey there, <%= @user.username %></h2>
 <% if @user.posts %>
 <div class="container">
 	<p>Here's everything we've evaluated for you:</p>
-	<div class="container">
 		<% @user.posts.each do |post| %>
+		<div class="container">
 			<a class="post-pointer" href="/posts/<%= post.id %>"> <%= post.id %> </a>
-			<%= post.body %> 
-			<p>Alchemy says:</p>
-			<%= post.analysis %>
+			<p>User Input:</p>
+			<p><%= post.body %></p>
+			<p>Alchemy's Analysis:</p>
+			<p><%= post.analysis %></p>
 	</div>
 		<% end %>
 </div>
@@ -16,3 +17,4 @@
 <h2>You haven't done anything yet!</h2>
 <p>Go <a href="/posts/new">here</a> to have some text analyzed</p>
 <% end %>
+<p><a href="/posts/new">Ask Alchemy to emotionally proof read more stuff!</a></p>

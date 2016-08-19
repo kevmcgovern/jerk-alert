@@ -1,5 +1,5 @@
 # Posts INDEX
-get '/posts' do
+get '/posts/' do
   @user = current_user
   @posts = @user.posts
   erb :'posts/index'
@@ -8,24 +8,54 @@ end
 
 # Posts NEW
 get '/posts/new/sentiment' do
-  @user = current_user
-  if request.xhr?
-    erb :'posts/_sentiment', layout: false, locals: { user: @user }
-    # Ajax this?
+  if current_user
+    @user = current_user
+    if request.xhr?
+      erb :'posts/_sentiment', layout: false, locals: { user: @user }
+      # Ajax this?
+    else
+      erb :'posts/new'
+    end
   else
-    erb :'posts/new'
+    @errors = "You must be logged in to do that."
+    erb :'posts/_error', layout: false
   end
 end
 
 get '/posts/new/emotion' do
-  @user = current_user
-  if request.xhr?
-    erb :'posts/_emotion', layout: false, locals: { user: @user } 
+  if current_user
+    @user = current_user
+    if request.xhr?
+      erb :'posts/_emotion', layout: false, locals: { user: @user }
+    else
+      erb :'posts/new'
+    end
   else
-    erb :'posts/new'
+    if request.xhr?
+      @errors = "You must be logged in to do that."
+      erb :'posts/_error', layout: false
+    end
   end
-  # erb :'posts/_emotion'
 end
+
+
+get '/posts/new/targeted-sentiment' do
+  if current_user
+    @user = current_user
+    if request.xhr?
+      erb :'posts/_targeted-sentiment', layout: false, locals: { user: @user }
+    else
+      erb :'posts/new'
+    end
+  else
+    if request.xhr?
+      @errors = "You must be logged in to do that."
+      erb :'posts/_error', layout: false
+    end
+  end
+end
+
+
 
 get '/posts/new' do
   @user = current_user
@@ -39,6 +69,61 @@ get '/posts/:id' do
   @post = Post.find(params[:id])
   erb :'posts/show'
 end
+
+
+# Potentially superfluous routes for event listeners/ajax
+get '/posts/sentiment/explanation' do
+  if request.xhr?
+    erb :'posts/_sentiment-details', layout: false
+  else
+    redirect '/'
+  end
+end
+
+
+get '/posts/emotion/explanation' do
+  if request.xhr?
+    erb :'posts/_emotion-details', layout: false
+  else
+    redirect '/'
+  end
+end
+
+
+get '/posts/targeted-sentiment/explanation' do
+  if request.xhr?
+    erb :'posts/_targeted-sentiment-details', layout: false
+  else
+    redirect '/'
+  end
+end
+
+# Jerk Alert Suggestion Routes
+# get '/posts/sentiment/suggestion' do
+#   if request.xhr?
+#     erb :'posts/_suggestion-sent', layout: false
+#   else
+#     redirect '/'
+#   end
+# end
+
+
+# get '/posts/emotion/suggestion' do
+#   if request.xhr?
+#     erb :'posts/_suggestion-emo', layout: false
+#   else
+#     redirect '/'
+#   end
+# end
+
+
+# get '/posts/targeted-sentiment/suggestion' do
+#   if request.xhr?
+#     erb :'posts/_suggestion-targ', layout: false
+#   else
+#     redirect '/'
+#   end
+# end
 
 
 # Posts CREATE

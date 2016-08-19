@@ -1,0 +1,42 @@
+<div>
+	<p>Input text:</p>
+	<div class="little-container">
+	"<%= @post.body %>"
+	</div>
+	<p>Analysis from Alchemy:</p>
+	<div class="little-container">
+		<p>Sentiment: <%= analysis[:sentiment] %></p>
+		<p>Score: <%= analysis[:score] %> </p>
+	</div>
+</div>
+<div>
+	<p>JerkAlert's perspective:</p>
+	<div class="snark">
+		<% if analysis[:score] >= -100 && analysis[:score] < -50 %>
+			<h3>Sensing some serious negativity coming from you. If you can, try to relax a bit</h3>
+			<figure>
+				<img src="/img/negativity.jpg" alt="relax">
+				<figcaption>Not saying things are great, but they can get better</figcaption>
+			</figure>
+		<% elsif analysis[:score] >= -50 && analysis[:score] < 0 %>
+		<h3>Totally normal level of negativity, but you can definitely lighten up.</h3>
+		<figure>
+			<img src="/img/asshole.png" alt="you're not wrong">
+			<figcaption>Presumably, what other people think about you.</figcaption>
+		</figure>
+		<% elsif analysis[:score] >= 0 && analysis[:score] < 50  %>
+		<h3>Nothing to say about this. You're in a good place.</h3>
+		<figure>
+			<img src="/img/beer.jpg" alt="Obamabeer" style="width:480px;height:480px">
+			<figcaption>You're a good one to keep around</figcaption>
+		</figure>
+		<% else  %>
+			<h3>Your happiness is infectious! And a little bit off putting... Do you have to smile so much?</h3>
+		<figure>
+			<img src="/img/joy.jpg" alt="sunshine">
+			<figcaption>You are happiness incarnate!</figcaption>
+		</figure>
+		<% end  %>
+		</div>
+	</div>
+<br>
