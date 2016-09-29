@@ -1,10 +1,10 @@
 <div>
-	<p>Input text:</p>
 	<div class="little-container">
+	<p>Input text:</p>
 	"<%= @post.body %>"
 	</div>
-	<p>Analysis from Alchemy:</p>
 	<div class="little-container">
+	<p>Analysis from Alchemy:</p>
 		<ul>
 			<li>Anger: <%= analysis[:anger] %></li>
 			<li>Disgust: <%= analysis[:disgust] %></li>
@@ -15,7 +15,9 @@
 	</div>
 </div>
 	<div>
+	<div class="little-container">
 	<p>JerkAlert's perspective:</p>
+	</div>
 	<div class="snark">
 	<% if analysis[:anger] > 40 %>
 	<h3>Calm down. Breathe. Woosah.</h3>
