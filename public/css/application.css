@@ -106,9 +106,17 @@ h3 {
 }
 
 figcaption {
-	
+	text-align: center;
 }
 
 .little-container {
 
+}
+
+.centered {
+	text-align: center;
+}
+
+#main-img {
+	width: 100%;
 }
