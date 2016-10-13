@@ -1,11 +1,17 @@
 <h3 class="sub-header"><a href="/posts/targeted-sentiment/explanation">Targeted Sentiment Analysis</a></h3>
 <div class="container">
-	<div class="explanation-container"></div>
-	<form class="creation" action='/posts/targeted-sentiment' method="post">
-		<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
-		<textarea name="post[body]" class="text" rows="15" cols="50" class="query"></textarea>
-		<label for="target">Target of Sentiment Analysis</label>
-		<input type="text" name="post[target]" placeholder="Sentiment Target">
-		<input type="submit" value="Show me the details!" />
-	</form>
+	<div class="col-xs-3"></div>
+	<div class="col-xs-6">
+		<div class="explanation-container"></div>
+		<form class="creation form-horizontal" action='/posts/targeted-sentiment' method="post">
+			<input type="hidden" name="post[user_id]" value="<%= @user.id %>">
+			<textarea name="post[body]" type="text" rows="8" class="query form-control"></textarea>
+			<label for="target">Target of Sentiment Analysis</label>
+			<div class="input-group">
+			<input type="text" class="form-control" name="post[target]" placeholder="Sentiment Target">
+			<input class="btn btn-default" type="submit" value="Show me the details!" />
+			</div>
+		</form>
+	</div>
+	<div class="col-xs-3"></div>
 </div>
