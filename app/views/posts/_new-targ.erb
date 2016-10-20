@@ -1,17 +1,19 @@
 <div>
-	<p>Input text:</p>
 	<div class="little-container">
+	<p>Input text:</p>
 	"<%= @post.body %>"
 	</div>
-	<p>Analysis from Alchemy:</p>
 	<div class="little-container">
+	<p>Analysis from Alchemy:</p>
 		<p>Sentiment: <%= analysis[:sentiment] %></p>
 		<p>Target: <%= @post.target %></p>
 		<p>Score: <%= analysis[:score] %> </p>
 	</div>
 </div>
 	<div>
+	<div class="little-container">
 	<p>JerkAlert's perspective:</p>
+	</div>
 	<div class="snark">
 	<% if analysis[:score] >= -100 && analysis[:score] < -50 %>
 			<h3>Even if <%= @post.target %> deserves it, that's pretty harsh.</h3>

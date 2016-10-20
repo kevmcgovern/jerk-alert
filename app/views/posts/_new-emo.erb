@@ -1,10 +1,10 @@
 <div>
-	<p>Input text:</p>
 	<div class="little-container">
+	<p>Input text:</p>
 	"<%= @post.body %>"
 	</div>
-	<p>Analysis from Alchemy:</p>
 	<div class="little-container">
+	<p>Analysis from Alchemy:</p>
 		<ul>
 			<li>Anger: <%= analysis[:anger] %></li>
 			<li>Disgust: <%= analysis[:disgust] %></li>
@@ -15,37 +15,39 @@
 	</div>
 </div>
 	<div>
+	<div class="little-container">
 	<p>JerkAlert's perspective:</p>
+	</div>
 	<div class="snark">
-	<% if analysis[:anger] > 40 %>
+	<% if analysis[:anger] > 40 && analysis[:joy] < 40 %>
 	<h3>Calm down. Breathe. Woosah.</h3>
 	<figure>
 		<iframe src="//giphy.com/embed/tpxI2DCSRpOH6?html5=true" width="480" height="292" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/hercules-hades-tpxI2DCSRpOH6">via GIPHY</a></p>
 		<figcaption>RELAX</figcaption>
 	</figure>
-	<% elsif analysis[:disgust] > 40 %>
+	<% elsif analysis[:disgust] > 40 && analysis[:joy] < 40 %>
 		<h3>It's probably not as bad as you think. But what do I know? I'm a computer.</h3>
 	<figure>
 		<iframe src="//giphy.com/embed/L4caiF7GTkgJa?html5=true" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/indiana-jones-raiders-of-the-lost-ark-nazi-face-melt-L4caiF7GTkgJa">via GIPHY</a></p>
 		<figcaption>It's not "Nickelback released a new album" bad, is it?</figcaption>
 	</figure>
-	<% elsif analysis[:sadness] > 40 %>
+	<% elsif analysis[:sadness] > 40 && analysis[:joy] < 40 %>
 		<h3>It looks like things are tough. Here's a picture of a puppy.</h3>
 	<figure>
 		<img src="/img/puppy.jpg">
-		<figcaption>Before you make the feels go away, remember this</figcaption>
+		<figcaption>Before you make the feels go away, remember this.</figcaption>
 	</figure>
 	<% elsif analysis[:joy] > 40 %>
-		<h3>So much happiness... Too bright...</h3>
+		<h3>Be excited! Things are going great.</h3>
 	<figure>
-		<img src="/img/sun.jpg">
-		<figcaption>You have a very <b>sunny</b> disposition.</figcaption>
+		<iframe src="//giphy.com/embed/ozQ1tgf2e8fvy?html5=true" width="480" height="361" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dog-fun-corgi-ozQ1tgf2e8fvy">via GIPHY</a></p>
+		<figcaption>If only everyone could be as happy as you and that corgi seem to be.</figcaption>
 	</figure>
 	<% elsif analysis[:fear] > 40 %>
-		<h3>The world isn't out to get you. Except when it is...</h3>
+		<h3>Don't freak out about your own shadow</h3>
 	<figure>
 		<img src="/img/courage.jpg">
-		<figcaption>Don't freak out about your own shadow</figcaption>
+		<figcaption>The world isn't out to get you. Except when it is...</figcaption>
 	</figure>
 	<% elsif analysis[:anger] > 40 || analysis[:disgust] > 40 || analysis[:sadness] > 40 || analysis[:fear] > 40 %>
 		<h3>Lots of assorted negativity going on. Maybe take a chill pill</h3>
